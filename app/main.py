@@ -24,6 +24,12 @@ from jarvis.agent import root_agent
 # Load Gemini API Key
 load_dotenv()
 
+# Ensure student_info.txt exists
+STUDENT_INFO_PATH = os.path.join(os.path.dirname(__file__), 'student_info.txt')
+if not os.path.exists(STUDENT_INFO_PATH):
+    with open(STUDENT_INFO_PATH, 'w') as f:
+        f.write('Student information goes here.')
+
 APP_NAME = "ADK Streaming example"
 session_service = InMemorySessionService()
 
